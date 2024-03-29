@@ -1,5 +1,5 @@
 {
-    "name": "opensoft/doctrine-postgres-types",
+    "name": "fsa/doctrine-postgres-types",
     "description": "Provide some common postgres types for doctrine",
     "license": "MIT",
     "authors": [
