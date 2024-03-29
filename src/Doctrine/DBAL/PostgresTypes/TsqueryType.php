@@ -28,7 +28,7 @@ class TsqueryType extends Type
     /**
      * {@inheritdoc}
      */
-    public function canRequireSQLConversion()
+    public function canRequireSQLConversion(): bool
     {
         return true;
     }
@@ -36,7 +36,7 @@ class TsqueryType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return 'TSQUERY';
     }
@@ -44,7 +44,7 @@ class TsqueryType extends Type
     /**
      * {@inheritdoc}
      */
-    public function convertToDatabaseValueSQL($sqlExpr, AbstractPlatform $platform)
+    public function convertToDatabaseValueSQL(string $sqlExpr, AbstractPlatform $platform): string
     {
         return sprintf('plainto_tsquery(%s)', $sqlExpr);
     }

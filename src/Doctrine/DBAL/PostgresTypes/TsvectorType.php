@@ -23,7 +23,7 @@ class TsvectorType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'tsvector';
     }
@@ -31,7 +31,7 @@ class TsvectorType extends Type
     /**
      * {@inheritdoc}
      */
-    public function canRequireSQLConversion()
+    public function canRequireSQLConversion(): bool
     {
         return true;
     }
@@ -39,7 +39,7 @@ class TsvectorType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return 'TSVECTOR';
     }
@@ -53,7 +53,7 @@ class TsvectorType extends Type
      *
      * @return mixed The PHP representation of the value.
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): mixed
     {
         // Wish there was a database way to make this cleaner... implement in convertToPHPValueSQL
         $terms = array();
@@ -75,7 +75,7 @@ class TsvectorType extends Type
      *
      * @return string
      */
-    public function convertToPHPValueSQL($value, $platform)
+    public function convertToPHPValueSQL(string $value, AbstractPlatform $platform): string
     {
         return $value;
     }
@@ -88,7 +88,7 @@ class TsvectorType extends Type
      *
      * @return string
      */
-    public function convertToDatabaseValueSQL($sqlExpr, AbstractPlatform $platform)
+    public function convertToDatabaseValueSQL(string $sqlExpr, AbstractPlatform $platform): string
     {
         return sprintf('to_tsvector(%s)', $sqlExpr);
     }
@@ -102,7 +102,7 @@ class TsvectorType extends Type
      *
      * @return mixed The database representation of the value.
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): mixed
     {
         if (is_array($value)) {
             $value = implode(' ', $value);
