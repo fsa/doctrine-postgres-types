@@ -37,7 +37,7 @@ class XmlType extends Type
     /**
      * {@inheritdoc}
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
+    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
         return 'XML';
     }
@@ -51,7 +51,7 @@ class XmlType extends Type
      *
      * @return mixed The PHP representation of the value.
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform)
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): mixed
     {
         return $value === null ?: new \SimpleXMLElement($value);
     }
@@ -64,7 +64,7 @@ class XmlType extends Type
      *
      * @return string
      */
-    public function convertToPHPValueSQL($value, $platform)
+    public function convertToPHPValueSQL(string $value, AbstractPlatform $platform): string
     {
         return $value;
     }
@@ -77,7 +77,7 @@ class XmlType extends Type
      *
      * @return string
      */
-    public function convertToDatabaseValueSQL($sqlExpr, AbstractPlatform $platform)
+    public function convertToDatabaseValueSQL(string $sqlExpr, AbstractPlatform $platform): string
     {
         return $sqlExpr;
     }
@@ -91,7 +91,7 @@ class XmlType extends Type
      *
      * @return mixed The database representation of the value.
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): mixed
     {
         if ($value instanceof \SimpleXMLElement) {
             $value = $value->asXML();
