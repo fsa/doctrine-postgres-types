@@ -19,10 +19,5 @@
         "psr-4": {
             "Doctrine\\DBAL\\PostgresTypes\\": "src/Doctrine/DBAL/PostgresTypes"
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
     }
 }
