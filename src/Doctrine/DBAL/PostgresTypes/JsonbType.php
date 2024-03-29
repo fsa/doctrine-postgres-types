@@ -14,7 +14,7 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
  *
  * @author Martin Georgiev <martin.georgiev@gmail.com>
  */
-class Jsonb extends BaseType
+class JsonbType extends BaseType
 {
     use JsonTransformer;
 
